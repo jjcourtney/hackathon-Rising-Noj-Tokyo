@@ -43,11 +43,6 @@ Users.init(
                 min: 8,
             }
         },
-        dob: {
-            type: DataTypes.STRING,
-            allowNull: false,
-
-        },
         cv_url: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -56,7 +51,34 @@ Users.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-
+        recruiter_id: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        reviewer_id: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            references: {
+                model: 'reviewers',
+                key: 'id',
+            },
+        },
+        applicant_id: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            references: {
+                model: 'applicants',
+                key: 'id',
+            },
+        },
+        recruiters_id: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            references: {
+                model: 'recruiters',
+                key: 'id',
+            },
+        },
     },
     {
         sequelize,
