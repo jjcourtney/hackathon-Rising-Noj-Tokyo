@@ -1,11 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-// has many applications
-
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
-
 class Jobs extends Model { }
 
 Jobs.init(
