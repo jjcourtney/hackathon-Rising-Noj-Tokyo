@@ -6,15 +6,60 @@ export const Reviewers = require('./Reviewers');
 export const Users = require('./Users');
 
 
-/**
- * Applicant 
- * has many appications
- * is a user
- * 
- */
+Applicant.hasMany(Applications, {
+  foreignKey: 'applicant_id',
+  onDelete: 'CASCADE'
+});
 
+Applications.belongsTo(Applicant, {
+  foreignKey: 'applicant_id'
+});
 
+Applications.hasMany(Applicant, {
+  foreignKey: 'applicantion_id',
+  onDelete: 'CASCADE'
+});
 
+Applicant.belongsTo(Applications, {
+  foreignKey: 'applicantion_id'
+});
+
+Recruiters.hasOne(Users, {
+  foreignKey: 'recruiters_id',
+  onDelete: 'CASCADE'
+});
+Users.belongsTo(Recruiters, {
+  foreignKey: 'recruiters_id'
+});
+
+Reviewers.hasOne(Users, {
+  foreignKey: 'reviewers_id',
+  onDelete: 'CASCADE'
+});
+
+Users.belongsTo(Reviewers, {
+  foreignKey: 'reviewers_id'
+});
+
+Applicant.hasOne(Users, {
+  foreignKey: 'applicant_id',
+  onDelete: 'CASCADE'
+});
+
+Users.belongsTo(Applicant, {
+  foreignKey: 'applicant_id'
+});
+
+Jobs.hasMany(Applications, {
+  foreignKey: 'job_id',
+  onDelete: 'CASCADE'
+});
+
+Applications.belongsTo(Jobs, {
+  foreignKey: 'job_id'
+});
+
+/*
 const codeData = [{
   id: 1, //number
   marked: true, //boolean
@@ -26,3 +71,4 @@ const codeData = [{
   code: "const train = (arg) => arg", //string
   rating: 2 //number | null
 }];
+*/
