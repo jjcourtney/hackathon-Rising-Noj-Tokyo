@@ -11,6 +11,14 @@ Recruiters.init(
             autoIncrement: true,
             allowNull: false,
         },
+        user_id: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            references: {
+                model: 'users',
+                key: 'id',
+            },
+        },
     },
     {
         sequelize,

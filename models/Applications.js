@@ -22,7 +22,8 @@ Applications.init(
                 model: 'applicants',
                 key: 'id',
             },
-        }, job_id: {
+        },
+        job_id: {
             type: DataTypes.STRING,
             allowNull: true,
             references: {
