@@ -11,7 +11,25 @@ Applications.init(
             autoIncrement: true,
             allowNull: false,
         },
-
+        code: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        applicant_id: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            references: {
+                model: 'applicants',
+                key: 'id',
+            },
+        }, job_id: {
+            type: DataTypes.STRING,
+            allowNull: true,
+            references: {
+                model: 'jobs',
+                key: 'id',
+            },
+        },
     },
     {
         sequelize,
@@ -22,3 +40,7 @@ Applications.init(
 );
 
 module.exports = Applications;
+
+/* job_id
+* applicant_id
+*/
