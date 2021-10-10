@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Reviewers extends Model { }
+class Applicants extends Model { }
 
-Reviewers.init(
+Applicants.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -11,7 +11,6 @@ Reviewers.init(
             autoIncrement: true,
             allowNull: false,
         },
-
         user_id: {
             type: DataTypes.STRING,
             allowNull: true,
@@ -20,13 +19,19 @@ Reviewers.init(
                 key: 'id',
             },
         },
-
     },
     {
         sequelize,
-        tableName: "reviewers",
+        tableName: "applicants",
         timestamps: true,
     }
 );
 
-module.exports = Reviewers;
+module.exports = Applicants;
+
+/**
+ * Applicant
+ * has many appications
+ * is a user
+ *
+ */
